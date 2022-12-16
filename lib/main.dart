@@ -336,7 +336,7 @@ class _GuestBookState extends State<GuestBook> {
                     children: const [
                       Icon(Icons.send),
                       SizedBox(width: 4),
-                      Text('SEND'),
+                      Text('ENVIAR'),
                     ],
                   ),
                 ),
