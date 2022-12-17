@@ -114,14 +114,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Firebase Meetup'),
+        title: const Text('Firebase-Reyes Macias'),
       ),
       body: ListView(
         children: <Widget>[
           Image.asset('assets/codelab.png'),
           const SizedBox(height: 8),
-          const IconAndDetail(Icons.calendar_today, 'October 30'),
-          const IconAndDetail(Icons.location_city, 'San Francisco'),
+          const IconAndDetail(Icons.calendar_today, 'Diciembre 16'),
+          const IconAndDetail(Icons.location_city, 'Montecristi'),
           Consumer<ApplicationState>(
             builder: (context, appState, _) => AuthFunc(
                 loggedIn: appState.loggedIn,
@@ -136,9 +136,9 @@ class HomePage extends StatelessWidget {
             endIndent: 8,
             color: Colors.grey,
           ),
-          const Header("What we'll be doing"),
+          const Header("¿Que se esta conversando?"),
           const Paragraph(
-            'Join us for a day full of Firebase Workshops and Pizza!',
+            '¡Únase a nosotros por un día lleno de talleres de Firebase y pizza!',
           ),
           // Modify from here...
           Consumer<ApplicationState>(
@@ -146,18 +146,18 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (appState.attendees >= 2)
-                  Paragraph('${appState.attendees} people going')
+                  Paragraph('${appState.attendees} persona conectada')
                 else if (appState.attendees == 1)
-                  const Paragraph('1 person going')
+                  const Paragraph('1 persona conectada')
                 else
-                  const Paragraph('No one going'),
+                  const Paragraph('Ninguna conectada'),
                 // ...to here.
                 if (appState.loggedIn) ...[
                   YesNoSelection(
                     state: appState.attending,
                     onSelection: (attending) => appState.attending = attending,
                   ),
-                  const Header('Discussion'),
+                  const Header('Conversacion'),
                   GuestBook(
                     addMessage: (message) =>
                         appState.addMessageToGuestBook(message),
